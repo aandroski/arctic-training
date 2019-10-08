@@ -1,7 +1,7 @@
 # arctic-training
 Testing repository for the Arctic Data Training.
 
-##Contributors
+## Contributors
 
 - Antonia Androski
 - Matthew Jones
