@@ -1,5 +1,5 @@
 # arctic-training
-Testing repository for the Arctic Data Training.
+Testing repository for the Arctic and Antarctic Data Training.
 
 ## Contributors
 
