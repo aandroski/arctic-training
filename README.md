@@ -1,6 +1,11 @@
 # arctic-training
 Testing repository for the Arctic Data Training.
-Add some more description.
+
+##Contributors
+
+- Antonia Androski
+- Matthew Jones
+- Jeanette Clark
 
 
 * Golfers
