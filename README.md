@@ -1,6 +1,6 @@
 # arctic-training
 
-Testing repository for the Arctic, Erctic, and Antarctic Data Training. Again.
+Testing repository for the American, Arctic, Erctic, and Antarctic Data Training. 
 
 ## Contributors
 
