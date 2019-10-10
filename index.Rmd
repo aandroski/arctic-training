@@ -1,5 +1,5 @@
 ---
-title: "My Webpage"
+title: "Salmon Escapement"
 author: "Antonia Androski"
 date: "10/10/2019"
 output: html_document
@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r Libraries}
+```{r Libraries, warning = FALSE, message = FALSE}
 library(dplyr)
 library(tidyr)
 library(ggplot2)
@@ -27,7 +27,8 @@ esc <- read.csv(url("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/urn%3Auu
 
 # Calculate annual escapement for salmon species
 
-```{r Change sample dates to years but keep sample dates, change year to numeric, group columns and summarize by calculating total escapement and 5 most common species}
+```{r, results = "hide"}
+# Change sample dates to years but keep sample dates, change year to numeric, group columns and summarize by calculating total escapement and 5 most common species
 annual_esc <- esc %>% 
   separate(sampleDate, c("Year", "Month", "Day"), sep = "-", remove = FALSE) %>% 
   mutate(Year = as.numeric(Year)) %>% 
@@ -42,11 +43,28 @@ head(annual_esc)
 
 # Visualize escapement with ggplot
 
-```{r}
+Total Escapement by Region and Species
+
+```{r Plot, echo = FALSE}
 ggplot(data = annual_esc, mapping = aes(x = Species, y = total_escapement, fill = SASAP.Region)) +
   geom_col()
 #You would think that the first part of this would make a plot, but it just sets up the plot without any points. You have to specify the geometry to get points.
 ```
 
+Kodiak Escapement Over Time by Species
+
+```{r, echo = FALSE}
+my_theme <- theme_bw() + theme(legend.position = "top")
+
+ggplot(data = filter(annual_esc, SASAP.Region == "Kodiak"), 
+       mapping = aes(x = Year, y = total_escapement, color = Species)) +
+geom_point() + geom_line() + scale_color_brewer(palette = "Dark2") + ylab("Escapement (no. fish)") + ggtitle("Kodiak Salmon Escapement") + my_theme
+```
+
+Excapement over time: all regions
+
+```{r, fig.width = 7, fig.height = 20}
+ggplot(annual_esc, aes(x = Year, y = total_escapement, color = Species)) + geom_point() + geom_line() + facet_wrap(~SASAP.Region, scales = "free_y", ncol = 1) + my_theme
+```
 
 # Map sampling locations
