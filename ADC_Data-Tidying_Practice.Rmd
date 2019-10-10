@@ -178,7 +178,3 @@ dates_df %>%
 ```
 There is a package that is made for manipulating/working with dates: lubridate
 
-```{r}
-
-```
-
