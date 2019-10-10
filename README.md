@@ -16,4 +16,6 @@ Testing repository for the American, Arctic, Erctic, and Antarctic Data Training
 * Greensleeves
 * Gophers
 * Gondolas
-
+* Garabaldi
+* Georgia
+* Glow worms
